@@ -1,7 +1,7 @@
-import { Head, Notes } from 'mdx-deck'
-import { theme } from './theme'
+import { Head, Notes } from "mdx-deck";
+import { theme } from "./theme";
 
-export const themes = [ theme ]
+export const themes = [theme];
 
 <Head>
   <title>Clojurescript</title>
@@ -13,43 +13,201 @@ export const themes = [ theme ]
 
 ## Agenda
 
-- introduce ourselfs to Clojurescript
+- introduce ourself to Clojurescript
+
+- install Clojure & Clojurescript
+
+- setup dev environment
+
+- code some
+
+- define the project
 
 ---
 
 ## Fast five about Clojurescript
 
 - mostly Clojure
+
 - lisp
-- functional first
-- *hosted* language
-- immutable
+
+- [functional first](https://clojurescript.org/about/functional-programming)
+
+- _hosted_ language
+
+- immutable data structures
+
 - lazy
-- 
+
+- transducers
 
 ---
 
-## Cheatsheets
+## Syntax
 
+About the same amount of parens, just goes on the outside instead:
 
----
+`add(1, 2)` vs `(add 1 1)`
 
-## Data sctructures
-
-Lisp
-
----
-
-Tips
-
-* Book on clojure: [Getting Clojure](https://pragprog.com/titles/roclojure/getting-clojure/)
-* Editor: vscode with [Calva](https://calva.io/)
-* Editor: atom with [Chlorine](https://atom.io/packages/chlorine)
-* [shadow-cljs](https://github.com/thheller/shadow-cljs)
-* [exercism Clojure track](https://exercism.io/tracks/clojure)
-* [Clojure styleguide](https://github.com/bbatsov/clojure-style-guide)
-* [Lib to treat js objects _almost_ as cljs maps](https://github.com/applied-science/js-interop)
+Most (all?) operators are functions (or macros) like +, -, or, and.
 
 ---
 
+## js vs cljs
 
+```js
+function add(x, y) {
+  return x + y;
+}
+
+let aObj = { a: "b", c: [1, 2] };
+
+console.log(aObj.c);
+```
+
+vs
+
+```clojure
+(defn add [x, y] (+ x y))
+
+(def a-map {:a "b" :c [1 2]})
+
+(println (:c a-map))
+(println (a-map :c))
+```
+
+---
+
+## [Data structures](https://clojure.org/reference/data_structures)
+
+- nil
+
+- Numbers
+
+- Strings
+
+- Characters
+
+- Keywords (eg `:i-am-a-keyword`)
+
+- Symbols
+
+---
+
+### Collections
+
+- Lists `()`
+
+- Vectors `[]`
+
+- Maps `{}`
+
+- Sets `#{}`
+
+Which often end up as Sequences (good thing!)
+
+---
+
+## Threading is cool
+
+- Pipe in other languages
+
+- Tread first, thread last, thread as, thread some and thread conditionally
+
+- <https://clojure.org/guides/threading_macros>
+
+```clojure
+(def values [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15])
+
+(defn a-function-doing-stuff [incoming]
+  (->> incoming
+       (map inc)
+       (filter even?)
+       (take 2)
+       (reduce +)))
+
+(incoming values) ;; 5
+```
+
+---
+
+# Boring, wanna code and break stuff!
+
+---
+
+## Should we pause with some [Clojurescript koans](http://clojurescriptkoans.com/)?
+
+---
+
+## References and cheat sheets
+
+[Clojure](https://clojure.org/api/cheatsheet)
+
+[Clojurescript](https://cljs.info/cheatsheet/)
+
+[ClojureDocs](https://clojuredocs.org/clojure.core/list)
+
+---
+
+## Install clojure
+
+- macos: `$ brew install leiningen` or `$ brew install clojure/tools/clojure`
+
+- Linux, odds are that there is easy install via your favorit package manager. Try
+  with leiningen first.
+
+- Windows, try [Leiningen](https://github.com/technomancy/leiningen#installation)
+  or go with [official guide](https://clojure.org/guides/getting_started).
+
+For Windows, and probably Linux, it seems to be good to install java first.
+
+---
+
+## Dev environment
+
+- Recommend vscode + [calva](https://calva.io/) or atom + [chlorine and friends](https://clojureverse.org/t/atom-editor-setup-for-clojure-script-development-in-2020/5045)
+
+- linter [clj-kondo](https://github.com/borkdude/clj-kondo)
+
+---
+
+## Towards a cljs hello world
+
+[Empty repo with shadow-cljs]()
+
+---
+
+- [Clojurescript koans](http://clojurescriptkoans.com/)
+
+- [Empty repo with shadow-cljs]()
+
+- [Exercises from exercism.io clojure track]()
+
+- [Empty cljs + express]()
+
+---
+
+Unsorted tips
+
+- [Clojurescript FAQ for jsdevs](https://clojurescript.org/guides/faq-js)
+- Book on clojure: [Getting Clojure](https://pragprog.com/titles/roclojure/getting-clojure/)
+- Editor: vscode with [Calva](https://calva.io/)
+- Editor: atom with [Chlorine](https://atom.io/packages/chlorine)
+- [shadow-cljs](https://github.com/thheller/shadow-cljs)
+- [shadow-cljs docs](https://shadow-cljs.github.io/docs/UsersGuide.html#_introduction)
+- [exercism Clojure track](https://exercism.io/tracks/clojure)
+- [Clojure styleguide](https://github.com/bbatsov/clojure-style-guide)
+- [Another clojure styleguide](https://medium.com/series/c4c7e4359da8)
+- [Lib to treat js objects _almost_ as cljs maps](https://github.com/applied-science/js-interop)
+- [Pattern matching](https://github.com/clojure/core.match)
+
+---
+
+Pay to learn recommendations
+
+- Clojurescript for the frontend: [jacekschae.com](https://www.jacekschae.com/)
+- Fp, Clojure and Clojurescript: [PurelyFunctional.tv](https://purelyfunctional.tv)
+
+---
+
+Fin
