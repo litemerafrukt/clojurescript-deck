@@ -1,25 +1,5 @@
-# mdx-deck basic template
+# [Go here to read deck](https://github.com/litemerafrukt/clojurescript-deck/blob/main/deck.mdx)
 
-This was generated with [mdx-deck][]'s `npm init deck` command.
+Startup the deck by cloning and `yarn && yarn start` in repo.
 
-## Development
-
-To run the presentation deck in development mode:
-
-```sh
-npm start
-```
-
-Edit the [`deck.mdx`](deck.mdx) file to get started.
-
-## Exporting
-
-To build the presentation deck as static HTML:
-
-```sh
-npm run build
-```
-
-For more documentation see the [mdx-deck][] repo.
-
-[mdx-deck]: https://github.com/jxnblk/mdx-deck
+The theme looks horrible, PR:s welcome :)
